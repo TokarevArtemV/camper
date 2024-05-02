@@ -1,0 +1,22 @@
+:root {
+  --toastify-color-success: #f2f4f7;
+  --toastify-icon-color-success: var(--toastify-color-success);
+
+  --toastify-color-error: #e44848;
+  --toastify-icon-color-error: var(--toastify-color-error);
+
+  --primary-white: #fff;
+  --primary-gray: rgb(71, 84, 103);
+  --primary-orange: #ffc531;
+  --primary-red: #e44848;
+
+  --hover-red: rgb(216, 67, 67);
+
+  --secondary-white: #f7f7f7;
+
+  --additional-white: #f2f4f7;
+
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --backdrop: rgba(0, 0, 0, 0.8);
+  --box-shadow: 0px 4px 8px 0px rgba(216, 67, 67, 0.34);
+}

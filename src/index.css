@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import '../src/assets/styles/reset.css';
+@import '../src/assets/styles/normalize.css';
+@import '../src/assets/styles/global.module.css';
+@import '../src/assets/theme/palette.css';
