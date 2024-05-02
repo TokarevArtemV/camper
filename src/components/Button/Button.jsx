@@ -6,7 +6,7 @@ const Button = ({
   children,
   className,
   onClick,
-  loading,
+  isDisabled,
   ...rest
 }) => {
   const buttonClasses = `${s.button} ${s[className]}`;
@@ -16,7 +16,7 @@ const Button = ({
       type={type}
       onClick={onClick}
       className={buttonClasses}
-      disabled={loading}
+      disabled={isDisabled}
       {...rest}
     >
       {children}

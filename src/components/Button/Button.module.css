@@ -2,147 +2,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  border-radius: 200px;
+  background: var(--primary-red);
   border: none;
-  padding: 8px 30px;
-  border-radius: 10px;
-  line-height: 20px;
-  font-size: 16px;
   font-weight: 500;
-  background-color: var(--primary-sky-blue);
-  color: var(--primary-white);
+  line-height: 1.5;
+  letter-spacing: -0.08px;
+  color: #fff;
   transition: var(--transition);
-  width: auto;
-  margin: 0 auto;
+}
+
+.showMore {
+  padding: 16px 40px;
+}
+
+.search {
+  width: 173px;
+  padding: 16px 60px;
 }
 
 .button:focus {
-  outline: 2px solid var(--secondary-blue);
+  outline: 2px solid var(--hover-red);
 }
 
 .button:hover {
   box-shadow: var(--box-shadow);
+  background: var(--hover-red);
   cursor: pointer;
-}
-
-.authButton {
-  width: 100%;
-  margin-bottom: 16px;
-}
-
-.addWaterBtn {
-  box-shadow: 0px 4px 8px 0px var(--box-shadow);
-  margin: 0;
-  width: 100%;
-}
-
-.tryTrackerButton {
-  width: 280px;
-  height: 36px;
-}
-
-.myDailyNormaSaveButton {
-  width: 160px;
-  margin-top: 24px;
-  margin-left: auto;
-  margin-right: 0;
-}
-
-.forgotYourPassword {
-  margin: 14px auto 24px;
-  min-width: 164px;
-}
-
-.myDailyNormaButton {
-  width: 100%;
-}
-
-@media screen and (min-width: 768px) {
-  .button {
-    height: 44px;
-    font-size: 18px;
-    line-height: 24px;
-    padding: 10px 30px;
-  }
-  .addWaterBtn {
-    width: 160px;
-  }
-
-  .tryTrackerButton {
-    width: 336px;
-    height: 44px;
-    margin-left: 0;
-  }
-
-  .saveSettingsBtn {
-    width: 160px;
-
-    margin-left: auto;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .tryTrackerButton {
-    width: 384px;
-  }
-
-  .saveSettingsBtn {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 18px;
-  }
-}
-
-.buttonProgresBar {
-  width: 100%;
-  padding: 6px;
-}
-
-@media screen and (min-width: 768px) and (max-width: 1439px) {
-  .buttonProgresBar {
-    width: 336px;
-    height: 44px;
-    padding: 10px 0;
-    line-height: 24px;
-    font-size: 18px;
-  }
-
-  .myDailyNormaButton {
-    width: 160px;
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .buttonProgresBar {
-    width: 178px;
-    height: 44px;
-    padding: 10px 0;
-    line-height: 24px;
-    font-size: 18px;
-  }
-}
-
-/* -----------settings modal----------- */
-.saveSettingsBtn {
-  width: 100%;
-  box-shadow: var(--box-shadow);
-  line-height: 1.25;
-  margin: 0;
-}
-
-.saveSettingsBtn:is(:hover, :focus) {
-  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
-}
-.saveSettingsBtn:active {
-  box-shadow: none;
-}
-.saveSettingsBtn:focus {
-  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
-}
-
-@media screen and (min-width: 768px) {
-  .saveSettingsBtn {
-    width: 160px;
-    margin-left: auto;
-  }
 }

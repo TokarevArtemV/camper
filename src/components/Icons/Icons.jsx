@@ -5,13 +5,14 @@ const Icons = ({
   id,
   className = '#',
   size = '16',
+  height = '',
   fill = 'black',
   stroke = 'black',
 }) => (
   <svg
     className={s[className]}
     width={size}
-    height={size}
+    height={height ? height : size}
     fill={fill}
     stroke={stroke}
   >

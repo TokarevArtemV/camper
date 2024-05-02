@@ -7,10 +7,12 @@ const CarList = () => {
   const cars = useSelector(selectAllCars);
 
   return (
-    <ul className={s.carList}>
-      {cars.length > 0 &&
-        cars.map((car, index) => <CarItem key={index} carDatails={car} />)}
-    </ul>
+    <section>
+      <ul className={s.carList}>
+        {cars.length > 0 &&
+          cars.map((car, index) => <CarItem key={index} carDatails={car} />)}
+      </ul>
+    </section>
   );
 };
 

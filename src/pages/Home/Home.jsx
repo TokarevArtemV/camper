@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { apiGetCars } from '../../redux/operations';
-import { CarList } from '../../components';
+import { Filter } from '../../components';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -11,9 +11,9 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <CarList />
-    </div>
+    <main className="container">
+      <Filter />
+    </main>
   );
 };
 

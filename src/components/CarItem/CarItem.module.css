@@ -59,6 +59,7 @@
     line-height: 1.25;
   }
 }
+
 .buttonFavorite {
   border: none;
   outline: none;
@@ -86,29 +87,4 @@
   & svg {
     margin-right: 4px;
   }
-}
-
-.showMorebutton {
-  display: flex;
-  padding: 16px 40px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 200px;
-  background: var(--primary-red);
-  border: none;
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: -0.08px;
-  color: #fff;
-  transition: var(--transition);
-}
-
-.button:focus {
-  outline: 2px solid var(--hover-red);
-}
-
-.showMorebutton:hover {
-  box-shadow: var(--box-shadow);
-  background: var(--hover-red);
-  cursor: pointer;
 }

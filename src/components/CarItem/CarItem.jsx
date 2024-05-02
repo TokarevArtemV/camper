@@ -1,4 +1,4 @@
-import { CarFeaturesList, Icons } from '../';
+import { Button, CarFeaturesList, Icons } from '../';
 import s from './CarItem.module.css';
 
 const CarItem = ({ carDatails } = {}) => {
@@ -42,7 +42,7 @@ const CarItem = ({ carDatails } = {}) => {
         </div>
         <span className={s.textDescription}>{description}</span>
         <CarFeaturesList carDatails={carDatails} />
-        <button className={s.showMorebutton}>Show more</button>
+        <Button className={`${s.button} showMore`}>Show more</Button>
       </div>
     </li>
   );
