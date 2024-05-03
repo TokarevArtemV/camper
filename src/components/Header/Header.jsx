@@ -14,8 +14,8 @@ const Header = () => {
   };
 
   return (
-    <>
-      <header className={s.header}>
+    <header className={s.header}>
+      <div className={`container`}>
         <nav className={s.header__navi}>
           <NavLink to={'/'}>Home</NavLink>
           <NavLink to={'/cars'}>Catalog</NavLink>
@@ -23,8 +23,8 @@ const Header = () => {
           {/* <Button onClick={handleLightThemeClick}>Ligth</Button>
           <Button onClick={handleDarkThemeClick}>Dark</Button> */}
         </nav>
-      </header>
-    </>
+      </div>
+    </header>
   );
 };
 

@@ -1,20 +1,8 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { apiGetCars } from '../../redux/operations';
-import { Filter } from '../../components';
+import { Modal } from '../../components';
+import s from './Home.module.css';
 
 const Home = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(apiGetCars());
-  }, [dispatch]);
-
-  return (
-    <main className="container">
-      <Filter />
-    </main>
-  );
+  return <div></div>;
 };
 
 export default Home;

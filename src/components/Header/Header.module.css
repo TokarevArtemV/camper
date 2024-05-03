@@ -4,10 +4,9 @@
   position: sticky;
   top: 0;
   z-index: 2;
-  background-color: var(--background-color-header);
+  background-color: var(--secondary-white);
   border-color: #080808;
   border-width: 0 0 1px;
-  margin-bottom: 24px;
   transition: background-color 500ms linear;
 }
 .header__navi {

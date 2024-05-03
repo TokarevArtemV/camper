@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import { SharedLayout } from './components';
-import { Catalog, Favorites, Home } from './pages';
+import { Catalog, Favorites, Home } from '../../pages';
+import { SharedLayout } from '../';
 import './App.css';
 
 function App() {

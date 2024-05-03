@@ -5,10 +5,10 @@
   border-radius: 200px;
   background: var(--primary-red);
   border: none;
+  color: #fff;
   font-weight: 500;
   line-height: 1.5;
-  letter-spacing: -0.08px;
-  color: #fff;
+  letter-spacing: -0.005em;
   transition: var(--transition);
 }
 
@@ -16,13 +16,18 @@
   padding: 16px 40px;
 }
 
+.loadMore {
+  width: 145px;
+  padding: 16px 32px;
+}
+
 .search {
   width: 173px;
   padding: 16px 60px;
 }
 
-.button:focus {
-  outline: 2px solid var(--hover-red);
+.send {
+  padding: 16px 60px;
 }
 
 .button:hover {

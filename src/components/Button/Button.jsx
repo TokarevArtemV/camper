@@ -4,18 +4,16 @@ const Button = ({
   type = 'button',
   title,
   children,
-  className,
+  className = '',
   onClick,
   isDisabled,
   ...rest
 }) => {
-  const buttonClasses = `${s.button} ${s[className]}`;
-
   return (
     <button
       type={type}
       onClick={onClick}
-      className={buttonClasses}
+      className={`${s.button} ${className ? s[className] : ''}`}
       disabled={isDisabled}
       {...rest}
     >

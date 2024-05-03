@@ -1,0 +1,5 @@
+.page_Catalog_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 64px;
+}

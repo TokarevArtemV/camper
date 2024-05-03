@@ -3,9 +3,16 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 125px;
   height: 44px;
   padding: 12px 18px;
   border-radius: 100px;
   background: #f2f4f7;
+
+  & p::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.modal {
+  width: auto;
 }

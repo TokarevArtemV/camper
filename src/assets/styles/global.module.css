@@ -3,6 +3,13 @@
   top: 70px;
   right: 15;
 }
+
+main {
+  padding: 20px 0;
+}
+
 .container {
-  width: 1312px;
+  width: 1352px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
