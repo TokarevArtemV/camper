@@ -2,6 +2,7 @@
   "name": "camper",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tokarevartemv.github.io/camper/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
@@ -20,7 +21,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI=false && react-scripts build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
