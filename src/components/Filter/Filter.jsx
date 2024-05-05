@@ -1,14 +1,24 @@
+import { useSearchParams } from 'react-router-dom';
 import { Formik, Field } from 'formik';
 import { Button, Icons } from '../';
 import * as Yup from 'yup';
 import s from './Filter.module.css';
 
-const handleSubmit = (value, action) => {
-  console.log(value);
-  action.resetForm();
-};
-
 const Filter = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const handleSubmit = (value, action) => {
+    const location = { location: 'kharkov' };
+    const type = { type: 'van' };
+
+    setSearchParams(value);
+
+    console.log(value);
+    console.log(searchParams);
+
+    action.resetForm();
+  };
+
   return (
     <Formik
       initialValues={{
@@ -22,7 +32,7 @@ const Filter = () => {
         ),
       })}
     >
-      {(formik) => {
+      {formik => {
         const {
           values,
           handleChange,
@@ -78,7 +88,7 @@ const Filter = () => {
                   id="equipment_tm"
                   type="checkbox"
                   name="equipment"
-                  value="transmition"
+                  value="automatic"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   title="Location should be 3 chars minimum, example `kha`"
@@ -150,7 +160,7 @@ const Filter = () => {
                   className={s.form_typeRadioButton}
                   id="type_van"
                   type="radio"
-                  name="type"
+                  name="form"
                   value="van"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -166,7 +176,7 @@ const Filter = () => {
                   className={s.form_typeRadioButton}
                   id="type_fully"
                   type="radio"
-                  name="type"
+                  name="form"
                   value="fully"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -182,7 +192,7 @@ const Filter = () => {
                   className={s.form_typeRadioButton}
                   id="type_alcove"
                   type="radio"
-                  name="type"
+                  name="form"
                   value="alcove"
                   onChange={handleChange}
                   onBlur={handleBlur}

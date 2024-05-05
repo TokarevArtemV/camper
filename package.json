@@ -2,7 +2,7 @@
   "name": "camper",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tokarevartemv.github.io/camper/",
+  "homepage": "https://TokarevArtemV.github.io/camper/",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",

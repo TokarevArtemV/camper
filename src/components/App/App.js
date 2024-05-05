@@ -10,7 +10,7 @@ function App() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/favorites" element={<Favorites />} />
       </Route>
-      <Route path="*" element={<SharedLayout />} />
+      <Route path="*" element={<Home />} />
     </Routes>
   );
 }
