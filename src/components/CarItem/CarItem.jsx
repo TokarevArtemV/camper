@@ -1,16 +1,41 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavoriteCar, deleteFavoriteCar } from '../../redux/carsSlice';
+import { selectAllCars, selectFavoriteCars } from '../../redux/selector';
 import { Button, CarFeaturesList, Icons, Modal, CarModal, Reviews } from '../';
 import s from './CarItem.module.css';
 
 const CarItem = ({ carDatails } = {}) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const cars = useSelector(selectAllCars);
+  const favoriteCars = useSelector(selectFavoriteCars);
+  const dispatch = useDispatch();
+  const refFavButton = useRef();
+
+  useEffect(() => {
+    if (isFavorite(carDatails._id))
+      refFavButton.current.classList.add(`activeButton`);
+  }, [favoriteCars]);
+
+  const isFavorite = (id) => favoriteCars.some((car) => car._id === id);
 
   const handleCloseModal = () => {
     setIsOpenModal((prevState) => !prevState);
   };
 
+  const handleFavorite = (id) => {
+    const car = cars.find((car) => car._id === id);
+
+    !isFavorite(id)
+      ? dispatch(addFavoriteCar(car))
+      : dispatch(deleteFavoriteCar(id));
+
+    refFavButton.current.classList.toggle(`activeButton`);
+  };
+
   const { _id, gallery, name, price, rating, reviews, location, description } =
     carDatails;
+
   return (
     <>
       <li className={s.card_container}>
@@ -27,7 +52,11 @@ const CarItem = ({ carDatails } = {}) => {
           <div className={s.title_container}>
             <h3>{`${name}`}</h3>
             <span>&#8364;{`${price}.00`}</span>
-            <button className={s.button_favorite}>
+            <button
+              ref={refFavButton}
+              className={s.button_favorite}
+              onClick={() => handleFavorite(_id)}
+            >
               <Icons id={'icon-heart'} fill="none" size="24" />
             </button>
           </div>

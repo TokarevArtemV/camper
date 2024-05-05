@@ -1,20 +1,26 @@
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, CarItem } from '../';
-import { selectAllCars } from '../../redux/selector';
+import { incrementPage } from '../../redux/carsSlice';
+import { selectIsLoadMore } from '../../redux/selector';
 import s from './CarList.module.css';
 
-const CarList = () => {
-  const cars = useSelector(selectAllCars);
+const CarList = ({ cars, isFavorites = false }) => {
+  const isLoadMore = useSelector(selectIsLoadMore);
+  const dispatch = useDispatch();
 
-  const handleLoadMore = () => {};
+  const handleLoadMore = () => {
+    dispatch(incrementPage());
+  };
 
   return (
     <ul className={`${s.carList}`}>
       {cars.length > 0 &&
         cars.map((car, index) => <CarItem key={index} carDatails={car} />)}
-      <Button onClick={handleLoadMore} className={'loadMore'}>
-        Load more
-      </Button>
+      {isLoadMore && !isFavorites && (
+        <Button onClick={handleLoadMore} className={'loadMore'}>
+          Load more
+        </Button>
+      )}
     </ul>
   );
 };

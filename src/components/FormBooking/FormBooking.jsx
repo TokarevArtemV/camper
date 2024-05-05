@@ -4,9 +4,9 @@ import { BookingSchema } from './validationShema';
 import s from './FormBooking.module.css';
 
 const handleSubmit = (value, action) => {
-  console.log(value);
-
   action.resetForm();
+
+  window.location.reload();
 };
 
 const FormBooking = () => {
@@ -104,7 +104,7 @@ const FormBooking = () => {
               type="submit"
               isDisabled={!(dirty && isValid)}
             >
-              Search
+              Send
             </Button>
           </form>
         );

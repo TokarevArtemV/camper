@@ -4,24 +4,32 @@ import { statusState } from './constants';
 
 const initialState = {
   cars: [],
-  currentCar: null,
+  page: 1,
+  limit: 4,
   favoriteCars: [],
   status: statusState.idle,
   error: null,
+  isLoadMore: true,
 };
 
 const carsSlice = createSlice({
   name: 'cars',
   initialState,
   reducers: {
-    setCurrentCar: (state, { payload }) => {
-      state.currentCar = payload;
+    incrementPage: (state) => {
+      state.page = state.page + 1;
     },
     addFavoriteCar: (state, { payload }) => {
       state.favoriteCars.push(payload);
     },
     deleteFavoriteCar: (state, { payload }) => {
-      console.log(state, payload);
+      const index = state.favoriteCars.findIndex((car) => car._id === payload);
+      state.favoriteCars.splice(index, 1);
+    },
+    clearCars: (state) => {
+      state.cars = [];
+      state.page = 1;
+      state.isLoadMore = true;
     },
   },
   extraReducers: (builder) =>
@@ -30,19 +38,19 @@ const carsSlice = createSlice({
       .addCase(apiGetCars.pending, (state) => {
         state.status = statusState.pending;
         state.error = null;
-        state.currentCar = null;
       })
       .addCase(apiGetCars.fulfilled, (state, { payload }) => {
         state.status = statusState.success;
         state.error = null;
-        state.cars = payload;
+        state.cars.push(...payload);
+        if (payload.length < state.limit) state.isLoadMore = false;
       })
       .addCase(apiGetCars.rejected, (state, { payload }) => {
         state.status = statusState.error;
         state.error = payload;
       }),
 });
-export const { setCurrentCar, addFavoriteCar, deleteFavoriteCar } =
+export const { incrementPage, addFavoriteCar, deleteFavoriteCar, clearCars } =
   carsSlice.actions;
 
 export const carsReducer = carsSlice.reducer;

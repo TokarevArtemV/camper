@@ -3,13 +3,11 @@ import { getAllCars } from '../services/cars-api';
 
 export const apiGetCars = createAsyncThunk(
   'cars/apiGetCars',
-  async (_, thankApi) => {
+  async (page, thankApi) => {
     try {
-      const { data } = await getAllCars();
-
+      const { data } = await getAllCars(page);
       return data;
     } catch (error) {
-      console.log(error);
       return thankApi.rejectWithValue(error.message);
     }
   }

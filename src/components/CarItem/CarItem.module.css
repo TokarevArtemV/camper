@@ -45,7 +45,11 @@
   margin-bottom: 8px;
 
   & h3 {
-    display: inline;
+    max-width: 320px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-right: auto;
     font-size: 24px;
     font-weight: 600;
@@ -69,13 +73,16 @@
   background-color: transparent;
   cursor: pointer;
 }
-.buttonFavorite svg {
+.button_favorite svg {
   transition: var(--transition);
 }
-.buttonFavorite svg:hover {
+.button_favorite svg:hover {
   fill: rgba(216, 67, 67, 0.14);
 }
-.buttonFavorite svg:active {
+.button_favorite svg:active {
   stroke: var(--hover-red);
   fill: var(--hover-red);
+}
+.active {
+  background-color: aqua;
 }

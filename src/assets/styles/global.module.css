@@ -13,3 +13,7 @@ main {
   margin: 0 auto;
   padding: 0 20px;
 }
+.activeButton svg {
+  fill: var(--primary-red) !important;
+  stroke: var(--primary-red) !important;
+}
