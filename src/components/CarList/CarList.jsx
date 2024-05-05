@@ -16,7 +16,7 @@ const CarList = ({ cars, isFavorites = false }) => {
     <ul className={`${s.carList}`}>
       {cars.length > 0 &&
         cars.map((car, index) => <CarItem key={index} carDatails={car} />)}
-      {isLoadMore && !isFavorites && (
+      {cars.length > 0 && !isFavorites && isLoadMore && (
         <Button onClick={handleLoadMore} className={'loadMore'}>
           Load more
         </Button>

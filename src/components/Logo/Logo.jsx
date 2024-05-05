@@ -4,9 +4,8 @@ import s from './Logo.module.css';
 
 const Logo = () => {
   return (
-    <Link to="/" className={s.container}>
+    <Link to="/">
       <img className={s.icon} src={logo} alt="Logo of camper" />
-      <p className={s.title}>Camper</p>
     </Link>
   );
 };

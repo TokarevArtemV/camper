@@ -4,7 +4,7 @@ export const BookingSchema = Yup.object().shape({
   name: Yup.string()
     .required()
     .min(3, 'Name is too short - should be 3 chars minimum'),
-  email: Yup.string().email('Email not valid, exampl user@mail.ua').required(),
+  email: Yup.string().email('Email not valid, example user@mail.ua').required(),
   date: Yup.date()
     .nullable()
     .required()

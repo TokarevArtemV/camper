@@ -1,24 +1,28 @@
 .header {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  min-width: 1362px;
   position: sticky;
   top: 0;
-  z-index: 2;
-  background-color: var(--secondary-white);
-  border-color: #080808;
-  border-width: 0 0 1px;
+  z-index: 3;
+  height: 90px;
+  background-color: #aaaaaa;
+  border: var(--border);
   transition: background-color 500ms linear;
 }
 .header__navi {
-  width: 500px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
   margin: 0px auto;
-  padding: 16px;
 }
 
 .header__navi a {
-  color: var(--blue-color);
+  color: var(--primary-white);
   text-decoration: none;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px; /* 125% */
+}
+
+.header__navi a:hover:not(:first-child) {
+  border-bottom: var(--border);
 }
