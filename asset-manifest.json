@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.b55a5463.css",
-    "main.js": "/static/js/main.287240d2.js",
-    "static/media/background.jpg": "/static/media/background.52a69b394d9bb22d3254.jpg",
-    "static/media/sprite.svg": "/static/media/sprite.975c486a3a4d520108baab0912e4a7c4.svg",
-    "index.html": "/index.html",
-    "main.b55a5463.css.map": "/static/css/main.b55a5463.css.map",
-    "main.287240d2.js.map": "/static/js/main.287240d2.js.map"
+    "main.css": "/camper/static/css/main.c5a73248.css",
+    "main.js": "/camper/static/js/main.7064faa9.js",
+    "static/media/background.jpg": "/camper/static/media/background.52a69b394d9bb22d3254.jpg",
+    "static/media/sprite.svg": "/camper/static/media/sprite.975c486a3a4d520108baab0912e4a7c4.svg",
+    "index.html": "/camper/index.html",
+    "main.c5a73248.css.map": "/camper/static/css/main.c5a73248.css.map",
+    "main.7064faa9.js.map": "/camper/static/js/main.7064faa9.js.map"
   },
   "entrypoints": [
-    "static/css/main.b55a5463.css",
-    "static/js/main.287240d2.js"
+    "static/css/main.c5a73248.css",
+    "static/js/main.7064faa9.js"
   ]
 }
