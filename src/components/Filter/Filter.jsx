@@ -1,20 +1,44 @@
-import { useSearchParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectAllCars } from '../../redux/selector';
 import { Formik, Field } from 'formik';
 import { Button, Icons } from '../';
 import * as Yup from 'yup';
 import s from './Filter.module.css';
 
 const Filter = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-
+  const cars = useSelector(selectAllCars);
   const handleSubmit = (value, action) => {
-    const location = { location: 'kharkov' };
-    const type = { type: 'van' };
+    const searchQuery = Object.assign({}, value);
+    if (searchQuery.location === '') delete searchQuery.location;
 
-    setSearchParams(value);
+    // const filteredCars = cars.filter(car => {
 
-    console.log(value);
-    console.log(searchParams);
+    //   return Object.entries(searcQuery).every(item => {
+    //     console.log(item);
+    //     console.log(car);
+    //     return car[key] === value;
+    //   });
+    // });
+
+    const carsKeys = Object.keys(cars);
+    const searchKeys = Object.keys(searchQuery);
+    const filteredCars = [];
+
+    console.log(searchQuery);
+
+    cars.forEach((car, index) => {
+      for (let key of searchKeys) {
+        console.log(car[key], '   ', searchQuery[key]);
+        console.log(car[key].includes(searchQuery[key]));
+
+        if (!car[key].includes(searchQuery[key])) {
+          return;
+        }
+      }
+      filteredCars.push(car);
+    });
+
+    console.log(filteredCars);
 
     action.resetForm();
   };
@@ -51,11 +75,11 @@ const Filter = () => {
                 id="location"
                 type="text"
                 name="location"
-                placeholder="Kharkov, Ukraine"
+                placeholder="City"
                 value={values.location}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                title="Location should be 3 chars minimum, example `kha`"
+                title="Location should be 3 chars minimum, example `Kharkiv, Ukraine`"
               />
             </div>
 
@@ -63,16 +87,16 @@ const Filter = () => {
 
             <h3 className={s.form_filtersTitle}>Vehicle equipment</h3>
             <div className={s.form_equipmentContainer}>
-              <label htmlFor="equipment_ac" className={s.form_equipmentLabel}>
+              <label htmlFor="details_ac" className={s.form_equipmentLabel}>
                 <Icons id={'icon-airConditioner'} size="32" />
                 <p>AC</p>
 
                 <Field
                   className={s.form_equipmentCheckbox}
-                  id="equipment_ac"
+                  id="details_ac"
                   type="checkbox"
-                  name="equipment"
-                  value="ac"
+                  name="details"
+                  value="airConditioner"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   title="Location should be 3 chars minimum, example `kha`"
@@ -80,14 +104,14 @@ const Filter = () => {
                 <span className={s.form_equipmentCheckmark}></span>
               </label>
 
-              <label htmlFor="equipment_tm" className={s.form_equipmentLabel}>
+              <label htmlFor="details_tm" className={s.form_equipmentLabel}>
                 <Icons id={'icon-transmission'} fill="none" size="32" />
                 <p>Automatic</p>
                 <Field
                   className={s.form_equipmentCheckbox}
-                  id="equipment_tm"
+                  id="details_tm"
                   type="checkbox"
-                  name="equipment"
+                  name="transmission"
                   value="automatic"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -97,16 +121,16 @@ const Filter = () => {
               </label>
 
               <label
-                htmlFor="equipment_kitchen"
+                htmlFor="details_kitchen"
                 className={s.form_equipmentLabel}
               >
                 <Icons id={'icon-kitchen'} fill="none" size="32" />
                 <p>Kitchen</p>
                 <Field
                   className={s.form_equipmentCheckbox}
-                  id="equipment_kitchen"
+                  id="details_kitchen"
                   type="checkbox"
-                  name="equipment"
+                  name="details"
                   value="kitchen"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -115,15 +139,15 @@ const Filter = () => {
                 <span className={s.form_equipmentCheckmark}></span>
               </label>
 
-              <label htmlFor="equipment_tv" className={s.form_equipmentLabel}>
+              <label htmlFor="details_tv" className={s.form_equipmentLabel}>
                 <Icons id={'icon-tv'} fill="none" size="32" />
                 <p>TV</p>
                 <Field
                   className={s.form_equipmentCheckbox}
-                  id="equipment_tv"
+                  id="details_tv"
                   type="checkbox"
-                  name="equipment"
-                  value="tv"
+                  name="details"
+                  value="TV"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   title="Location should be 3 chars minimum, example `kha`"
@@ -131,17 +155,14 @@ const Filter = () => {
                 <span className={s.form_equipmentCheckmark}></span>
               </label>
 
-              <label
-                htmlFor="equipment_shower"
-                className={s.form_equipmentLabel}
-              >
+              <label htmlFor="details_shower" className={s.form_equipmentLabel}>
                 <Icons id={'icon-shower'} fill="none" size="32" />
                 <p>Shower/WC</p>
                 <Field
                   className={s.form_equipmentCheckbox}
-                  id="equipment_shower"
+                  id="details_shower"
                   type="checkbox"
-                  name="equipment"
+                  name="details"
                   value="shower"
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -161,7 +182,7 @@ const Filter = () => {
                   id="type_van"
                   type="radio"
                   name="form"
-                  value="van"
+                  value="panelTruck"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   title="Location should be 3 chars minimum, example `kha`"
@@ -177,7 +198,7 @@ const Filter = () => {
                   id="type_fully"
                   type="radio"
                   name="form"
-                  value="fully"
+                  value="fullyIntegrated"
                   onChange={handleChange}
                   onBlur={handleBlur}
                   title="Location should be 3 chars minimum, example `kha`"

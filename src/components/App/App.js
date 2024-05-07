@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Catalog, Favorites, Home } from '../../pages';
 import { SharedLayout } from '../';
 
@@ -10,7 +10,7 @@ function App() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/favorites" element={<Favorites />} />
       </Route>
-      <Route path="*" element={<Home />} />
+      <Route path="*" element={<Navigate to={'/'} />} />
     </Routes>
   );
 }

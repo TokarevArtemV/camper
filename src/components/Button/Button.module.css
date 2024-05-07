@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 200px;
-  background: var(--primary-red);
+  background-color: var(--primary-red);
   border: none;
   color: #fff;
   font-weight: 500;
@@ -17,8 +17,10 @@
 }
 
 .loadMore {
-  width: 145px;
   padding: 16px 32px;
+  color: var(--text-color);
+  background-color: transparent;
+  border: 1px solid rgba(71, 84, 103, 0.2);
 }
 
 .search {
@@ -40,8 +42,14 @@
   font-size: 18px;
 }
 
-.button:hover {
+.button:hover:not(.loadMore) {
   box-shadow: var(--box-shadow);
-  background: var(--hover-red);
+  background-color: var(--hover-red);
   cursor: pointer;
+}
+.loadMore:hover {
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  background-color: none;
+  border: 1px solid var(--primary-red);
 }

@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-export const carsInstance = axios.create({
-  baseURL: 'https://65aecb4d1dfbae409a758f43.mockapi.io/API',
-});
+export const carsInstance = axios.create();
 
 export const getAllCars = async (page = 1, limit = 4) => {
   const url = new URL(

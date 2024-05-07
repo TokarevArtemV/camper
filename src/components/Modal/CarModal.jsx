@@ -16,11 +16,11 @@ import s from './CarModal.module.css';
 const CarModal = ({ id, onClose }) => {
   const [selectedTab, setSelectedTab] = useState(-1);
 
-  const handleSelect = (index) => {
+  const handleSelect = index => {
     setSelectedTab(index);
   };
 
-  const currenCar = useSelector(selectAllCars).find((car) => car._id === id);
+  const currenCar = useSelector(selectAllCars).find(car => car._id === id);
   const { name, rating, reviews, price, location, gallery, description } =
     currenCar;
 
